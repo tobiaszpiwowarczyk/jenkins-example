@@ -1,0 +1,11 @@
+pipeline {
+  stages {
+    stage("Print some text") {
+      steps {
+        script {
+          sh 'Hello from first pipeline'
+        }
+      }
+    }
+  }
+}
