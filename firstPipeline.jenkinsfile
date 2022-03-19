@@ -1,11 +1,20 @@
 pipeline {
+  agent "any"
+
   stages {
     stage("Print some text") {
       steps {
         script {
-          sh 'Hello from first pipeline'
+          sh 'echo "Hello from first pipeline"'
         }
       }
+    }
+  }
+
+  post {
+    success {
+      echo "Running second pipeline"
+      build job: 'secondPipeline', parameters: []
     }
   }
 }
